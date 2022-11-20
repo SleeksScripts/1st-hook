@@ -1,0 +1,8 @@
+local hook; hook = hookmetamethod(game, "__index", function(self,...)
+            if tostring(self) == "StoredAmmo" and (...) == "Value" then
+               return math.huge
+            elseif tostring(self) == "Ammo" and (...) == "Value" then
+                return math.huge
+            end
+            return hook(self,...)
+         end)
